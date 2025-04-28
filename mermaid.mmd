@@ -1,0 +1,94 @@
+flowchart LR
+  %% GitHub Actions Workflows
+  subgraph GH_Actions["GitHub Actions"]
+    direction TB
+    infra["infra.yml\n(Terraform + Crossplane)"]
+    app["app.yml\n(Build & Deploy)"]
+    dr["dr.yml\n(DR Provisioning)"]
+  end
+
+  %% Terraform Control Plane
+  subgraph Terraform_CP["Terraform Control Plane\n(Management Project)"]
+    direction TB
+    TF["Terraform Init & Apply:\n- GCP Projects (Mgmt, Dev, Stg, Prod)\n- Management VPC & Subnets\n- GKE Management Cluster"]
+    helmCP["HelmRelease:\nCrossplane + ProviderConfigs"]
+  end
+
+  %% Crossplane Control Plane
+  subgraph Management_Cluster["Management Cluster\n(namespace: crossplane-system)"]
+    direction TB
+    XPC["Crossplane Controllers"]
+    subgraph Providers["ProviderConfigs"]
+      GCP_Prov["GCP"]
+      AWS_Prov["AWS"]
+      Azure_Prov["Azure"]
+      VS_Prov["vSphere"]
+    end
+    subgraph Compositions["Compositions & XRDs"]
+      CompNet["CompositeNetwork"]
+      CompCluster["CompositeCluster"]
+    end
+  end
+
+  %% Workload Clusters (Primary)
+  subgraph Envs["Primary Environments"]
+    direction LR
+    Dev["GKE Dev Cluster"]
+    Stg["GKE Staging Cluster"]
+    Prod["GKE Prod Cluster"]
+  end
+
+  %% DR Clusters (Secondary)
+  subgraph DR_Clusters["Disaster Recovery Environments"]
+    direction LR
+    EKS["EKS DR Cluster\n(AWS)"]
+    AKS["AKS DR Cluster\n(Azure)"]
+    VSphere["vSphere DR Cluster\n(On-Prem)"]
+  end
+
+  %% Connections: Infra provisioning
+  infra --> Terraform_CP
+  Terraform_CP --> helmCP
+  helmCP --> XPC
+
+  %% Crossplane picks up all providers
+  XPC --> GCP_Prov
+  XPC --> AWS_Prov
+  XPC --> Azure_Prov
+  XPC --> VS_Prov
+
+  %% Compositions use provider configs to create networks & clusters
+  GCP_Prov --> CompNet
+  GCP_Prov --> CompCluster
+  AWS_Prov --> CompNet
+  AWS_Prov --> CompCluster
+  Azure_Prov --> CompNet
+  Azure_Prov --> CompCluster
+  VS_Prov --> CompNet
+  VS_Prov --> CompCluster
+
+  %% Primary clusters
+  CompNet --> Dev
+  CompCluster --> Dev
+  CompNet --> Stg
+  CompCluster --> Stg
+  CompNet --> Prod
+  CompCluster --> Prod
+
+  %% DR clusters
+  CompNet --> EKS
+  CompCluster --> EKS
+  CompNet --> AKS
+  CompCluster --> AKS
+  CompNet --> VSphere
+  CompCluster --> VSphere
+
+  %% App deployments
+  app --> Dev
+  app --> Stg
+  app --> Prod
+
+  %% DR provisioning workflow
+  dr --> EKS
+  dr --> AKS
+  dr --> VSphere
