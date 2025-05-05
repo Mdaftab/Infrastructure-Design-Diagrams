@@ -29,6 +29,8 @@ flowchart TB
                     Flux["Flux"]
                     Cert["Cert Manager"]
                     ExternalDNS["ExternalDNS"]
+                    Kyverno["Kyverno"] %% Added policy engine
+                    OPA["OPA/Gatekeeper"] %% Added policy engine
                 end
                 
                 %% Service Mesh
@@ -40,6 +42,11 @@ flowchart TB
                         Kiali["Kiali"]
                         Jaeger["Jaeger"]
                     end
+                    %% Added service mesh enhancements
+                    subgraph "Progressive Delivery"
+                        Flagger["Flagger"]
+                        VirtualService["Virtual Services"]
+                    end
                 end
                 
                 %% Application Workloads
@@ -48,6 +55,8 @@ flowchart TB
                     APIGateway["API Gateway"]
                     CoreSvc["Core Services"]
                     AuxSvc["Auxiliary Services"]
+                    %% Added feature flags
+                    FeatureFlags["Feature Flags (LaunchDarkly)"]
                 end
             end
             
@@ -57,6 +66,8 @@ flowchart TB
                 ElastiCache["ElastiCache Redis"]
                 DynamoDB["DynamoDB Global Tables"]
                 MSK["Managed Kafka"]
+                %% Added specialized storage
+                S3Glacier["S3 Glacier (Archive)"]
             end
             
             %% Observability Stack
@@ -66,6 +77,10 @@ flowchart TB
                 CloudWatch["CloudWatch"]
                 XRay["X-Ray"]
                 OpenSearch["OpenSearch"]
+                %% Added OpenTelemetry
+                OpenTelemetry["OpenTelemetry Collector"]
+                Loki["Loki (Log Aggregation)"]
+                Tempo["Tempo (Traces)"]
             end
         end
         
@@ -86,6 +101,8 @@ flowchart TB
                 subgraph "Platform Services"
                     ConfigSync["Config Sync"]
                     ASM["Anthos Service Mesh"]
+                    %% Added policy engine
+                    PolicyController["Policy Controller"]
                 end
                 DrWorkloads["DR Workloads"]
             end
@@ -112,11 +129,19 @@ flowchart TB
             GHActions["GitHub Actions"]
             SonarQube["SonarQube"]
             ArtifactRegistry["Artifact Registry"]
+            %% Added supply chain security
+            Cosign["Cosign/Sigstore"]
+            Trivy["Trivy Scanner"]
+            SBOM["SBOM Generator"]
         end
         
         subgraph "CD Pipeline"
             ArgoProj["Argo Projects"]
             HelmCharts["Helm Charts"]
+            %% Added GitOps enhancements
+            ArgoRollouts["Argo Rollouts"]
+            ArgoEvents["Argo Events"]
+            Crossplane["Crossplane"]
         end
         
         subgraph "Infrastructure as Code"
@@ -124,6 +149,9 @@ flowchart TB
             Terragrunt["Terragrunt"]
             Atlantis["Atlantis"]
             TFModules["Terraform Modules"]
+            %% Added alternatives
+            Pulumi["Pulumi"]
+            CDK["CDK for Terraform"]
         end
         
         subgraph "Security Automation"
@@ -133,6 +161,9 @@ flowchart TB
             SAST["Static Analysis"]
             DAST["Dynamic Analysis"]
             ImageScanner["Container Image Scanning"]
+            %% Added runtime security
+            Falco["Falco"]
+            KubeArmor["KubeArmor"]
         end
     end
     
@@ -141,17 +172,34 @@ flowchart TB
         subgraph "Incident Management"
             PagerDuty["PagerDuty"]
             OpsGenie["OpsGenie"]
+            %% Added incident tools
+            FireHydrant["FireHydrant"]
+            Blameless["Blameless"]
         end
         
         subgraph "SLO Monitoring"
             SLOs["SLO Definitions"]
             ErrorBudgets["Error Budgets"]
             Alerts["Alert Policies"]
+            %% Added user-centric monitoring
+            RUM["Real User Monitoring"]
+            Synthetics["Synthetic Monitoring"]
         end
         
         subgraph "Chaos Engineering"
             ChaosMesh["Chaos Mesh"]
             LitmusChaos["Litmus Chaos"]
+            %% Added chaos engineering tools
+            GremlinInc["Gremlin"]
+            ChaosToolkit["Chaos Toolkit"]
+        end
+        
+        %% Added FinOps
+        subgraph "FinOps & Sustainability"
+            KubeCost["KubeCost"]
+            CloudCustodian["Cloud Custodian"]
+            CarbonAware["Carbon-Aware Scheduler"]
+            Infracost["Infracost"]
         end
     end
     
@@ -175,23 +223,34 @@ flowchart TB
     GHActions --> SonarQube
     GHActions --> ArtifactRegistry
     GHActions --> ArgoProj
+    GHActions --> Cosign
+    GHActions --> Trivy
+    GHActions --> SBOM
     
     Terraform --> Terragrunt
     Terragrunt --> TFModules
     Terragrunt --> Atlantis
     TFModules --> Multi-Cloud_Architecture
+    Pulumi -.-> Multi-Cloud_Architecture
+    CDK --> Terraform
     
     ArgoProj --> HelmCharts
     ArgoProj --> ArgoCD & Flux
     HelmCharts --> ArgoCD & Flux
+    ArgoProj --> ArgoRollouts
+    ArgoProj --> ArgoEvents
+    ArgoRollouts --> Flagger
     
     ArgoCD --> EKS_Platform
     Flux --> GKE_Platform
+    Crossplane -.-> EKS_Platform & GKE_Platform
     
     Vault --> EKS_Platform & GKE_Platform
     SecretManager --> EKS_Platform & GKE_Platform
     
     Checkov & SAST & DAST & ImageScanner --> CI_Pipeline
+    Falco -.-> EKS_Platform & GKE_Platform
+    KubeArmor -.-> EKS_Platform & GKE_Platform
     
     IstioPilot --> EnvoyProxies
     IstioCNI --> EKS_Platform
@@ -199,6 +258,10 @@ flowchart TB
     EnvoyProxies --> Workload_Namespaces
     EnvoyProxies --> Jaeger
     Kiali --> IstioPilot
+    Flagger -.-> VirtualService
+    VirtualService -.-> EnvoyProxies
+    
+    FeatureFlags -.-> Workload_Namespaces
     
     AuthSvc <--> CoreSvc
     APIGateway --> AuthSvc
@@ -216,17 +279,30 @@ flowchart TB
     MSK <--> RepEvents --> Pub_Sub
     ElastiCache <--> MemoryStore
     
+    OpenTelemetry --> Prometheus & Tempo & Loki
     Prometheus --> Grafana
+    Tempo --> Grafana
+    Loki --> Grafana
     Grafana --> SLOs
     SLOs --> ErrorBudgets
     SLOs --> Alerts
     
     Alerts --> PagerDuty & OpsGenie
+    Alerts --> FireHydrant & Blameless
     CloudWatch --> PagerDuty
     XRay --> Observability
     
-    ChaosMesh & LitmusChaos --> EKS_Platform & GKE_Platform
-    ChaosMesh & LitmusChaos --> SLO_Monitoring
+    ChaosMesh & LitmusChaos & GremlinInc & ChaosToolkit --> EKS_Platform & GKE_Platform
+    ChaosMesh & LitmusChaos & GremlinInc & ChaosToolkit --> SLO_Monitoring
     
     Observability --> SLO_Monitoring
+    RUM & Synthetics --> SLO_Monitoring
+    
+    KubeCost --> EKS_Platform & GKE_Platform
+    CloudCustodian -.-> Multi-Cloud_Architecture
+    CarbonAware -.-> EKS_Platform & GKE_Platform
+    Infracost -.-> TFModules & Pulumi
+    
+    Kyverno & OPA -.-> EKS_Platform
+    PolicyController -.-> GKE_Platform
 ```
