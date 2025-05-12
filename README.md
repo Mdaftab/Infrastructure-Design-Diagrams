@@ -28,6 +28,7 @@ Each subdirectory contains a detailed infrastructure example, complete with a vi
 - **infra-microservices-mesh-platform**: Cloud-native microservices architecture with service mesh, progressive delivery, GitOps, and FinOps practices.
 - **infra-secrets-management**: Secrets Management Architecture.
 - **Infra_with_tf_GCP_crossplane**: Multi-cloud architecture with Terraform and Crossplane for infrastructure unification.
+- **devops-argocd-gitops**: Argo CD GitOps Deployment Approach.
 - **mlops-basic-pipeline**: Basic ML Training and Deployment Pipeline.
 - **mlops-cicd-pipeline**: CI/CD Pipeline for ML Models.
 - **mlops-feature-store**: MLOps with Feature Store integration.
