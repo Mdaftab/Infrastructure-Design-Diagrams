@@ -8,13 +8,19 @@ Whether you're a seasoned cloud architect, a DevOps engineer, or just starting y
 
 Each subdirectory contains a detailed infrastructure example, complete with a visual Mermaid diagram and a comprehensive `README.md` explaining the architecture, use case, and key decisions.
 
-- **infra-microservices-mesh-platform**: Cloud-native microservices architecture with service mesh, progressive delivery, GitOps, and FinOps practices.
+- **infra-3tier-web-app**: Basic 3-Tier Web Application architecture.
+- **infra-basic-iot**: Basic IoT Data Ingestion and Monitoring System.
 - **infra-ecommerce-realtime-system**: E-commerce platform with real-time inventory tracking, AI-powered analytics, and comprehensive SRE practices.
-- **infra-healthcare-data-platform**: HIPAA-compliant healthcare data processing system with FHIR integration and edge computing for medical IoT.
+- **infra-event-driven-data-lake**: Event-Driven Data Lake architecture.
 - **infra-fintech-payment-system**: High-security financial transaction processing platform with fraud detection, compliance controls, and transaction integrity guarantees.
-- **infra-media-streaming-platform**: Multi-cloud media content delivery system with AI-powered content analysis and multi-DRM protection.
+- **infra-healthcare-data-platform**: HIPAA-compliant healthcare data processing system with FHIR integration and edge computing for medical IoT.
 - **infra-iot-manufacturing-system**: Smart manufacturing with edge-cloud architecture, digital twin capabilities, and OT/IT security integration.
+- **infra-media-streaming-platform**: Multi-cloud media content delivery system with AI-powered content analysis and multi-DRM protection.
+- **infra-microservices-mesh-platform**: Cloud-native microservices architecture with service mesh, progressive delivery, GitOps, and FinOps practices.
 - **Infra_with_tf_GCP_crossplane**: Multi-cloud architecture with Terraform and Crossplane for infrastructure unification.
+- **mlops-basic-pipeline**: Basic ML Training and Deployment Pipeline.
+- **mlops-cicd-pipeline**: CI/CD Pipeline for ML Models.
+- **mlops-feature-store**: MLOps with Feature Store integration.
 
 ## ✨ Purpose
 
