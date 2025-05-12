@@ -25,7 +25,10 @@ Each subdirectory contains a detailed infrastructure example, complete with a vi
 - **infra-healthcare-data-platform**: HIPAA-compliant healthcare data processing system with FHIR integration and edge computing for medical IoT.
 - **infra-iot-manufacturing-system**: Smart manufacturing with edge-cloud architecture, digital twin capabilities, and OT/IT security integration.
 - **infra-media-streaming-platform**: Multi-cloud media content delivery system with AI-powered content analysis and multi-DRM protection.
+- **infra-microservices-api-gateway**: Microservices Architecture with API Gateway.
+- **infra-microservices-event-driven**: Event-Driven Microservices Architecture.
 - **infra-microservices-mesh-platform**: Cloud-native microservices architecture with service mesh, progressive delivery, GitOps, and FinOps practices.
+- **infra-microservices-service-mesh**: Microservices Architecture with Service Mesh.
 - **infra-secrets-management**: Secrets Management Architecture.
 - **Infra_with_tf_GCP_crossplane**: Multi-cloud architecture with Terraform and Crossplane for infrastructure unification.
 - **devops-argocd-gitops**: Argo CD GitOps Deployment Approach.
