@@ -32,6 +32,8 @@ Each subdirectory contains a detailed infrastructure example, complete with a vi
 - **infra-secrets-management**: Secrets Management Architecture.
 - **Infra_with_tf_GCP_crossplane**: Multi-cloud architecture with Terraform and Crossplane for infrastructure unification.
 - **devops-argocd-gitops**: Argo CD GitOps Deployment Approach.
+- **observability-datadog-logs**: Datadog Log Management Flow.
+- **observability-opentelemetry**: OpenTelemetry Observability Architecture.
 - **mlops-basic-pipeline**: Basic ML Training and Deployment Pipeline.
 - **mlops-cicd-pipeline**: CI/CD Pipeline for ML Models.
 - **mlops-feature-store**: MLOps with Feature Store integration.
