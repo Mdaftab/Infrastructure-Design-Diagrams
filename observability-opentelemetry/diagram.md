@@ -9,19 +9,19 @@ graph LR
     end
 
     subgraph "OpenTelemetry Components"
-        OT_SDK["OTel SDKs\n(in Applications)"]
-        OT_Collector["OTel Collector\n(Agent/Gateway)"]
+        OT_SDK["OTel SDKs (in Applications)"]
+        OT_Collector["OTel Collector (Agent/Gateway)"]
     end
 
     subgraph "Backend Systems"
-        MetricsBackend["Metrics Backend\n(e.g., Prometheus, Cloud Monitoring)"]
-        TracesBackend["Traces Backend\n(e.g., Jaeger, Tempo, Cloud Trace)"]
-        LogsBackend["Logs Backend\n(e.g., Loki, OpenSearch, Cloud Logging)"]
-        AnalyticsBackend["Analytics Backend\n(e.g., BigQuery, Snowflake)"]
+        MetricsBackend["Metrics Backend (e.g., Prometheus, Cloud Monitoring)"]
+        TracesBackend["Traces Backend (e.g., Jaeger, Tempo, Cloud Trace)"]
+        LogsBackend["Logs Backend (e.g., Loki, OpenSearch, Cloud Logging)"]
+        AnalyticsBackend["Analytics Backend (e.g., BigQuery, Snowflake)"]
     end
 
     subgraph "Analysis & Visualization"
-        Dashboarding["Dashboarding\n(e.g., Grafana, Looker Studio)"]
+        Dashboarding["Dashboarding (e.g., Grafana, Looker Studio)"]
         Alerting["Alerting System"]
         AnalyticsTools["Analytics Tools"]
     end

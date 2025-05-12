@@ -11,13 +11,13 @@ graph LR
     end
 
     subgraph "Microservices"
-        ServiceA["Service A\n(Publishes Events)"]
-        ServiceB["Service B\n(Subscribes to Events)"]
-        ServiceC["Service C\n(Subscribes to Events)"]
+        ServiceA["Service A (Publishes Events)"]
+        ServiceB["Service B (Subscribes to Events)"]
+        ServiceC["Service C (Subscribes to Events)"]
     end
 
     subgraph "Messaging / Event Bus"
-        EventBus["Event Bus / Message Broker\n(e.g., Kafka, RabbitMQ, Pub/Sub, Event Hubs)"]
+        EventBus["Event Bus / Message Broker (e.g., Kafka, RabbitMQ, Pub/Sub, Event Hubs)"]
     end
 
     subgraph "Data Stores"

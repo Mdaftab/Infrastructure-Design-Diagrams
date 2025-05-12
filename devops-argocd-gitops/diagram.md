@@ -4,33 +4,33 @@
 graph LR
     subgraph "Development Workflow"
         Developer["Developer"]
-        CodeCommit["Code Commit\n(Application Code)"]
-        InfraCommit["Infra Commit\n(Kubernetes Manifests)"]
+        CodeCommit["Code Commit (Application Code)"]
+        InfraCommit["Infra Commit (Kubernetes Manifests)"]
     end
 
     subgraph "Git Repositories"
         AppRepo["Application Code Repo"]
-        InfraRepo["Kubernetes Manifests Repo\n(Desired State)"]
+        InfraRepo["Kubernetes Manifests Repo (Desired State)"]
     end
 
     subgraph "CI Pipeline"
-        CI["CI Pipeline\n(Build, Test, Image Push)"]
+        CI["CI Pipeline (Build, Test, Image Push)"]
         ContainerRegistry["Container Registry"]
     end
 
     subgraph "GitOps Controller"
-        ArgoCD["Argo CD\n(GitOps Controller)"]
+        ArgoCD["Argo CD (GitOps Controller)"]
         ArgoCDAPI["Argo CD API/UI"]
     end
 
     subgraph "Kubernetes Cluster"
         K8sAPI["Kubernetes API Server"]
         K8sNodes["Kubernetes Nodes"]
-        Applications["Running Applications\n(Actual State)"]
+        Applications["Running Applications (Actual State)"]
     end
 
     subgraph "Observability & Monitoring"
-        Monitoring["Monitoring\n(Metrics, Logs, Traces)"]
+        Monitoring["Monitoring (Metrics, Logs, Traces)"]
         Alerting["Alerting"]
     end
 

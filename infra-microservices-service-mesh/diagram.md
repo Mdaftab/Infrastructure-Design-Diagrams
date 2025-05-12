@@ -26,8 +26,8 @@ graph LR
     end
 
     subgraph "Service Mesh Control Plane"
-        ControlPlane["Control Plane\n(e.g., Istio, Linkerd, App Mesh)"]
-        ObservabilityTools["Observability Tools\n(Metrics, Tracing, Logging)"]
+        ControlPlane["Control Plane (e.g., Istio, Linkerd, App Mesh)"]
+        ObservabilityTools["Observability Tools (Metrics, Tracing, Logging)"]
     end
 
     subgraph "Data Stores"

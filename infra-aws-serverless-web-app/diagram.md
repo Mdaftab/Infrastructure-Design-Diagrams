@@ -7,18 +7,18 @@ graph LR
     end
 
     subgraph "Edge & Presentation"
-        CloudFront["CloudFront\n(CDN)"]
-        S3Hosting["S3\n(Static Website Hosting)"]
+        CloudFront["CloudFront (CDN)"]
+        S3Hosting["S3 (Static Website Hosting)"]
     end
 
     subgraph "API & Compute"
-        APIGateway["API Gateway\n(REST/HTTP API)"]
-        Lambda["Lambda\n(Backend Logic)"]
+        APIGateway["API Gateway (REST/HTTP API)"]
+        Lambda["Lambda (Backend Logic)"]
     end
 
     subgraph "Data Layer"
-        DynamoDB["DynamoDB\n(NoSQL Database)"]
-        S3Data["S3\n(Data Storage)"]
+        DynamoDB["DynamoDB (NoSQL Database)"]
+        S3Data["S3 (Data Storage)"]
     end
 
     User --> CloudFront

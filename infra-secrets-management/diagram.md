@@ -10,14 +10,14 @@ graph LR
     end
 
     subgraph "Secrets Management System"
-        SecretsManager["Secrets Manager\n(e.g., Vault, AWS Secrets Manager, Azure Key Vault)"]
+        SecretsManager["Secrets Manager (e.g., Vault, AWS Secrets Manager, Azure Key Vault)"]
         AuditLogs["Audit Logs"]
-        EncryptionKeys["Encryption Keys\n(KMS)"]
+        EncryptionKeys["Encryption Keys (KMS)"]
     end
 
     subgraph "Runtime Environment"
         Applications["Applications / Services"]
-        ComputeResources["Compute Resources\n(VMs, Containers, Functions)"]
+        ComputeResources["Compute Resources (VMs, Containers, Functions)"]
         Database["Database / External Service"]
     end
 

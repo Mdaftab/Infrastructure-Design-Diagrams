@@ -8,20 +8,20 @@ graph LR
     end
 
     subgraph "Ingestion"
-        CloudStorage["Cloud Storage\n(Landing Zone)"]
-        Dataflow["Dataflow\n(Streaming/Batch ETL)"]
-        DataFusion["Data Fusion\n(ETL/ELT)"]
+        CloudStorage["Cloud Storage (Landing Zone)"]
+        Dataflow["Dataflow (Streaming/Batch ETL)"]
+        DataFusion["Data Fusion (ETL/ELT)"]
     end
 
     subgraph "Storage & Processing"
-        BigQuery["BigQuery\n(Data Warehouse)"]
-        Dataproc["Dataproc\n(Spark/Hadoop)"]
+        BigQuery["BigQuery (Data Warehouse)"]
+        Dataproc["Dataproc (Spark/Hadoop)"]
     end
 
     subgraph "Business Intelligence & Analytics"
-        LookerStudio["Looker Studio\n(Dashboards)"]
-        Looker["Looker\n(BI Platform)"]
-        VertexAI["Vertex AI\n(ML)"]
+        LookerStudio["Looker Studio (Dashboards)"]
+        Looker["Looker (BI Platform)"]
+        VertexAI["Vertex AI (ML)"]
     end
 
     SourceA --> CloudStorage

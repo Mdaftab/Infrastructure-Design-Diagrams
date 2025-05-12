@@ -14,19 +14,19 @@ graph LR
     end
 
     subgraph "Processing"
-        ServerlessFunctions["Serverless Functions\n(e.g., Lambda, Azure Functions, Cloud Functions)"]
-        StreamProcessing["Stream Processing\n(e.g., Kinesis Analytics, Stream Analytics)"]
+        ServerlessFunctions["Serverless Functions (e.g., Lambda, Azure Functions, Cloud Functions)"]
+        StreamProcessing["Stream Processing (e.g., Kinesis Analytics, Stream Analytics)"]
     end
 
     subgraph "Storage"
-        Database["Database\n(e.g., DynamoDB, Cosmos DB, Timestream)"]
-        DataLake["Data Lake\n(e.g., S3, ADLS, Cloud Storage)"]
+        Database["Database (e.g., DynamoDB, Cosmos DB, Timestream)"]
+        DataLake["Data Lake (e.g., S3, ADLS, Cloud Storage)"]
     end
 
     subgraph "Monitoring & Visualization"
-        MonitoringTools["Monitoring Tools\n(e.g., CloudWatch, Azure Monitor, Cloud Monitoring)"]
-        Dashboard["Dashboard\n(e.g., Grafana, QuickSight, Power BI)"]
-        Alerting["Alerting\n(e.g., SNS, Action Groups)"]
+        MonitoringTools["Monitoring Tools (e.g., CloudWatch, Azure Monitor, Cloud Monitoring)"]
+        Dashboard["Dashboard (e.g., Grafana, QuickSight, Power BI)"]
+        Alerting["Alerting (e.g., SNS, Action Groups)"]
     end
 
     DeviceA --> IoTHub

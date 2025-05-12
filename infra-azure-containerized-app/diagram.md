@@ -8,24 +8,24 @@ graph LR
 
     subgraph "Network & Edge"
         AzureDNS["Azure DNS"]
-        FrontDoor["Azure Front Door\n(Global Load Balancing/CDN)"]
-        AppGateway["Application Gateway\n(WAF, Load Balancing)"]
+        FrontDoor["Azure Front Door (Global Load Balancing/CDN)"]
+        AppGateway["Application Gateway (WAF, Load Balancing)"]
     end
 
     subgraph "Compute & Orchestration"
-        AKS["Azure Kubernetes Service\n(AKS)"]
-        ContainerRegistry["Azure Container Registry\n(ACR)"]
+        AKS["Azure Kubernetes Service (AKS)"]
+        ContainerRegistry["Azure Container Registry (ACR)"]
     end
 
     subgraph "Data Layer"
         AzureDatabase["Azure Database for PostgreSQL/MySQL"]
         AzureCache["Azure Cache for Redis"]
-        StorageAccount["Azure Storage Account\n(Blobs, Files)"]
+        StorageAccount["Azure Storage Account (Blobs, Files)"]
     end
 
     subgraph "Monitoring & Security"
         AzureMonitor["Azure Monitor"]
-        KeyVault["Azure Key Vault\n(Secrets)"]
+        KeyVault["Azure Key Vault (Secrets)"]
         Defender["Defender for Cloud"]
     end
 

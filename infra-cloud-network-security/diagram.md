@@ -8,26 +8,26 @@ graph LR
 
     subgraph "Cloud Provider Network"
         subgraph "Global Edge"
-            DDoSProtection["DDoS Protection\n(e.g., Shield, Front Door, Cloud Armor)"]
-            WAF["Web Application Firewall\n(WAF)"]
-            CDN["CDN\n(Caching, Edge Security)"]
+            DDoSProtection["DDoS Protection (e.g., Shield, Front Door, Cloud Armor)"]
+            WAF["Web Application Firewall (WAF)"]
+            CDN["CDN (Caching, Edge Security)"]
         end
 
         subgraph "Regional Network"
-            VPC["Virtual Private Cloud\n(VPC/VNet)"]
-            Subnets["Subnets\n(Public/Private)"]
+            VPC["Virtual Private Cloud (VPC/VNet)"]
+            Subnets["Subnets (Public/Private)"]
             RouteTables["Route Tables"]
-            NetworkACLs["Network ACLs\n(Stateless Filtering)"]
-            SecurityGroups["Security Groups\n(Stateful Filtering)"]
-            Firewall["Network Firewall\n(e.g., Network Firewall, Azure Firewall, Cloud Firewall)"]
-            VPN_DX["VPN / Direct Connect\n(Hybrid Connectivity)"]
+            NetworkACLs["Network ACLs (Stateless Filtering)"]
+            SecurityGroups["Security Groups (Stateful Filtering)"]
+            Firewall["Network Firewall (e.g., Network Firewall, Azure Firewall, Cloud Firewall)"]
+            VPN_DX["VPN / Direct Connect (Hybrid Connectivity)"]
         end
 
         subgraph "Security Services"
-            IDS_IPS["Intrusion Detection/Prevention\n(IDS/IPS)"]
+            IDS_IPS["Intrusion Detection/Prevention (IDS/IPS)"]
             TrafficMirroring["Traffic Mirroring"]
             FlowLogs["VPC Flow Logs"]
-            SecurityHub["Security Posture Management\n(e.g., Security Hub, Defender, Security Command Center)"]
+            SecurityHub["Security Posture Management (e.g., Security Hub, Defender, Security Command Center)"]
         end
     end
 

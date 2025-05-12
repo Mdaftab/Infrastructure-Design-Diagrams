@@ -9,22 +9,22 @@ graph LR
     end
 
     subgraph "Datadog Agents & Integrations"
-        DatadogAgent["Datadog Agent\n(Host/Container)"]
-        Integrations["Cloud/Service Integrations\n(e.g., S3, CloudWatch Logs, Azure Blob Storage)"]
+        DatadogAgent["Datadog Agent (Host/Container)"]
+        Integrations["Cloud/Service Integrations (e.g., S3, CloudWatch Logs, Azure Blob Storage)"]
     end
 
     subgraph "Datadog Platform"
-        LogIngestion["Log Ingestion\n(Receives Logs)"]
-        LogProcessing["Log Processing Pipelines\n(Parsing, Enrichment, Filtering)"]
-        LogIndexing["Log Indexing\n(Storage & Search)"]
+        LogIngestion["Log Ingestion (Receives Logs)"]
+        LogProcessing["Log Processing Pipelines (Parsing, Enrichment, Filtering)"]
+        LogIndexing["Log Indexing (Storage & Search)"]
         LogAnalytics["Log Analytics Engine"]
     end
 
     subgraph "Datadog UI & Features"
-        LogExplorer["Log Explorer\n(Search & Filter)"]
-        Dashboards["Dashboards\n(Visualization)"]
-        Monitors["Monitors\n(Alerting)"]
-        LogPatterns["Log Patterns\n(Anomaly Detection)"]
+        LogExplorer["Log Explorer (Search & Filter)"]
+        Dashboards["Dashboards (Visualization)"]
+        Monitors["Monitors (Alerting)"]
+        LogPatterns["Log Patterns (Anomaly Detection)"]
         LogMetrics["Log-Based Metrics"]
     end
 
