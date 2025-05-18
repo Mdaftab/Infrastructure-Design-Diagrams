@@ -1,5 +1,22 @@
 # 🚀 State-of-the-Art Infrastructure Design Diagrams 🚀
 
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](../../)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![Last Updated](https://img.shields.io/github/last-commit/mdaftab/System-Design-Diagrams)](../../)
+
+---
+
+## 📑 Table of Contents
+- [Repository Structure](#-repository-structure)
+- [Purpose](#-purpose)
+- [Features Demonstrated](#-features-demonstrated)
+- [Usage](#-usage)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#contact)
+
+---
+
 Welcome to the **Mermaid Infrastructure Diagrams** repository! This collection showcases cutting-edge infrastructure designs using Mermaid.js, highlighting best practices in DevOps, SRE, and Cloud Architecture.
 
 Whether you're a seasoned cloud architect, a DevOps engineer, or just starting your journey, these diagrams and their accompanying explanations provide valuable insights into modern system design.
@@ -9,34 +26,31 @@ Whether you're a seasoned cloud architect, a DevOps engineer, or just starting y
 Each subdirectory contains a detailed infrastructure example, complete with a visual Mermaid diagram and a comprehensive `README.md` explaining the architecture, use case, and key decisions.
 
 - **3tier-web-app**: Basic 3-Tier Web Application architecture.
-- **basic-iot**: Basic IoT Data Ingestion and Monitoring System.
-- **ecommerce-realtime-system**: E-commerce platform with real-time inventory tracking, AI-powered analytics, and comprehensive SRE practices.
-- **event-driven-data-lake**: Event-Driven Data Lake architecture.
-- **fintech-payment-system**: High-security financial transaction processing platform with fraud detection, compliance controls, and transaction integrity guarantees.
-- **healthcare-data-platform**: HIPAA-compliant healthcare data processing system with FHIR integration and edge computing for medical IoT.
-- **iot-manufacturing-system**: Smart manufacturing with edge-cloud architecture, digital twin capabilities, and OT/IT security integration.
 - **aws-serverless-web-app**: Serverless Web App on AWS.
 - **azure-containerized-app**: Containerized Application on Azure.
+- **basic-iot**: Basic IoT Data Ingestion and Monitoring System.
 - **cloud-network-security**: Cloud Network Security architecture.
+- **devops-argocd-gitops**: Argo CD GitOps Deployment Approach.
 - **ecommerce-realtime-system**: E-commerce platform with real-time inventory tracking, AI-powered analytics, and comprehensive SRE practices.
 - **event-driven-data-lake**: Event-Driven Data Lake architecture.
 - **fintech-payment-system**: High-security financial transaction processing platform with fraud detection, compliance controls, and transaction integrity guarantees.
-- **gcp-data-warehouse-bi**: Data Warehouse and BI on GCP architecture.
 - **healthcare-data-platform**: HIPAA-compliant healthcare data processing system with FHIR integration and edge computing for medical IoT.
+- **infra-gcp-data-warehouse-bi**: Data Warehouse and BI on GCP architecture.
+- **infra-media-streaming-platform**: Multi-cloud media content delivery system with AI-powered content analysis and multi-DRM protection.
+- **infra-serverless-api**: Serverless API infrastructure.
 - **iot-manufacturing-system**: Smart manufacturing with edge-cloud architecture, digital twin capabilities, and OT/IT security integration.
-- **media-streaming-platform**: Multi-cloud media content delivery system with AI-powered content analysis and multi-DRM protection.
 - **microservices-api-gateway**: Microservices Architecture with API Gateway.
 - **microservices-event-driven**: Event-Driven Microservices Architecture.
 - **microservices-mesh-platform**: Cloud-native microservices architecture with service mesh, progressive delivery, GitOps, and FinOps practices.
 - **microservices-service-mesh**: Microservices Architecture with Service Mesh.
-- **secrets-management**: Secrets Management Architecture.
-- **tf-gcp-crossplane**: Multi-cloud architecture with Terraform and Crossplane for infrastructure unification.
-- **devops-argocd-gitops**: Argo CD GitOps Deployment Approach.
-- **observability-datadog-logs**: Datadog Log Management Flow.
-- **observability-opentelemetry**: OpenTelemetry Observability Architecture.
 - **mlops-basic-pipeline**: Basic ML Training and Deployment Pipeline.
 - **mlops-cicd-pipeline**: CI/CD Pipeline for ML Models.
 - **mlops-feature-store**: MLOps with Feature Store integration.
+- **observability-datadog-logs**: Datadog Log Management Flow.
+- **observability-opentelemetry**: OpenTelemetry Observability Architecture.
+- **secrets-management**: Secrets Management Architecture.
+- **Stock Data Dashboard Architectural**: Stock Data Dashboard Architecture.
+- **tf-gcp-crossplane**: Multi-cloud architecture with Terraform and Crossplane for infrastructure unification.
 
 ## ✨ Purpose
 
@@ -103,6 +117,18 @@ The examples collectively cover a wide range of modern cloud and DevOps capabili
 
 ## 📖 Usage
 
+### Example Mermaid Diagram
+
+```mermaid
+flowchart TD
+    User[User]
+    Browser[Web Browser]
+    LB[Load Balancer]
+    App[App Server]
+    DB[(Database)]
+    User --> Browser --> LB --> App --> DB
+```
+
 Each example is self-contained within its subdirectory. To explore:
 
 1.  Navigate to the subdirectory of the architecture you're interested in.
@@ -119,14 +145,29 @@ To view the diagrams locally:
 
 We welcome contributions of new infrastructure patterns or improvements to existing ones! Please adhere to the following guidelines:
 
--   **Focus on Realism**: Contribute realistic, production-grade architectures.
--   **Comprehensive Documentation**: Include a detailed `README.md` explaining the design, use case, components, and decisions.
--   **Clear Diagrams**: Ensure diagrams are clear, readable, and follow [Mermaid.js best practices](https://mermaid.js.github.io/mermaid/diagrams/flowchart.html).
--   **Consistent Formatting**: Maintain consistent formatting across all examples.
--   **Modern Practices**: Incorporate modern DevOps, SRE, security, and FinOps best practices.
--   **Sustainability**: Consider sustainability and cost optimization in your designs.
+1. **Fork** the repository.
+2. **Create a new branch** for your feature or fix (`git checkout -b feature/your-feature-name`).
+3. **Add your contribution** (new architecture, diagram, or improvement).
+4. **Include a detailed `README.md`** explaining the design, use case, components, and decisions.
+5. **Ensure diagrams** are clear, readable, and follow [Mermaid.js best practices](https://mermaid.js.github.io/mermaid/diagrams/flowchart.html).
+6. **Submit a pull request** with a clear description of your changes.
+
+- **Focus on Realism**: Contribute realistic, production-grade architectures.
+- **Comprehensive Documentation**: Include a detailed `README.md` explaining the design, use case, components, and decisions.
+- **Clear Diagrams**: Ensure diagrams are clear, readable, and follow [Mermaid.js best practices](https://mermaid.js.github.io/mermaid/diagrams/flowchart.html).
+- **Consistent Formatting**: Maintain consistent formatting across all examples.
+- **Modern Practices**: Incorporate modern DevOps, SRE, security, and FinOps best practices.
+- **Sustainability**: Consider sustainability and cost optimization in your designs.
 
 To contribute, please fork the repository, create a new branch, add your contribution, and submit a pull request.
+
+## 📝 License
+
+This repository is licensed under the [MIT License](./LICENSE).
+
+## 📬 Contact
+
+For questions, suggestions, or support, please open an issue or start a discussion on GitHub.
 
 ---
 
